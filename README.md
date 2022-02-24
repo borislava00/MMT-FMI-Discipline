@@ -1,7 +1,5 @@
 # MMT-FMI-Discipline
-## Multimedia Web Technologies with Angular and Typescript
-
-## Free elective discipline in Faculty of Mathematics and Informatics
+## Free elective discipline in Faculty of Mathematics and Informatics - Multimedia Web Technologies with Angular and Typescript
 
 ### The course contains the following topics:
 - Presentation of the course, introduction to the field
