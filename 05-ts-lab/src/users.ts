@@ -9,7 +9,7 @@ export interface Person {
 }
 
 export interface Contact {
-    coutry: string;
+    country: string;
     city?: string;
     address?: string;
     phone?: string;
@@ -43,5 +43,58 @@ export class UserBase implements User {
     
     getSalutation(): string {
         return `Hi ${this.firstName} ${this.lastName} in roles: ${this.roles.map(r => Role[r]).join(", ")}`
+    }
+}
+
+export class Reader extends UserBase {
+    constructor(
+        public id: IdType,
+        public firstName: string,
+        public lastName: string,
+        public email: string,
+        public password: string,
+        public roles: Role[] = [Role.READER],
+        public contact?: Contact | undefined,
+    ) {
+        super(id, firstName, lastName, email, password, roles, contact); 
+    }
+
+    toString(): string {
+        return `Reader{name: ${this.firstName} ${this.lastName}, roles: ${this.roles.map(r => Role[r]).join(", ")}, email: ${this.email}, password: ${this.password}}`
+    }
+}
+
+export class Author extends UserBase {
+    constructor(
+        public id: IdType,
+        public firstName: string,
+        public lastName: string,
+        public email: string,
+        public password: string,
+        public roles: Role[] = [Role.AUTHOR],
+        public contact?: Contact | undefined,
+    ) {
+        super(id, firstName, lastName, email, password, roles, contact); 
+    }
+
+    toString(): string {
+        return `Author{name: ${this.firstName} ${this.lastName}, roles: ${this.roles.map(r => Role[r]).join(", ")}, email: ${this.email}, password: ${this.password}}`
+    }
+}
+
+export class Admin extends UserBase {
+    constructor(
+        public id: IdType,
+        public firstName: string,
+        public lastName: string,
+        public email: string,
+        public password: string,
+        public contact?: Contact | undefined,
+        public roles: Role[] = [Role.ADMIN],
+    ) {
+        super( id, firstName, lastName, email, password, roles, contact,)
+     }
+     toString(): string {
+        return `Admin{name: ${this.firstName} ${this.lastName}, roles: ${this.roles.map(r => Role[r]).join(", ")}, email: ${this.email}, password: ${this.password}}`
     }
 }
